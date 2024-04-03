@@ -123,7 +123,11 @@ public class SellerDaoJDBC implements SellerDao {
 				
 				Department dep = map.get(rs.getInt("DepartmentId"));
 				
-				Department dep = instantiateDepartament(rs);
+				if(dep == null) {
+					dep = instantiateDepartament(rs);
+					map.put(rs.getInt("DepartmentId"), dep);
+				}
+				
 				
 				Seller obj = instantiateSeller(rs, dep);
 				list.add(obj);
