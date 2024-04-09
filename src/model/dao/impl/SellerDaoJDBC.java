@@ -26,7 +26,18 @@ public class SellerDaoJDBC implements SellerDao {
 
 	@Override
 	public void insert(Seller obj) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		
+		try {
+			st = conn.prepareStatement(
+					"INSERT INTO seller "
+					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
+					+ " VALUES "
+					+ "(?, ?, ?, ?, ?)");
+			
+			st.setString(1, obj.getName());
+		}
+		
 		
 	}
 
