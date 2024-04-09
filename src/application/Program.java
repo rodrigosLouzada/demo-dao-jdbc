@@ -30,6 +30,14 @@ public class Program {
 		for(Seller obj : list) {
 			System.out.println(obj);
 		}
+		
+		/////////////////////
+		System.out.println("\n=== test3, SellerByDepartement ===");
+		list = sellerDao.findALL();
+		
+		for(Seller obj : list) {
+			System.out.println(obj);
+		}
 	}
 
 }
