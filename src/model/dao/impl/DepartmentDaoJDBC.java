@@ -2,6 +2,8 @@ package model.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.List;
 
 import db.DB;
@@ -23,23 +25,24 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		PreparedStatement st = null;
 		
 		try { st = conn.prepareStatement("INSERT INTO department "
-				+ "(Id, Name)"
+				+ "(Name)"
 				+ "VALUES "
-				+ "?, ?",
-				st.RETURN_GENERATED_KEYS);
+				+ "?",
+				Statement.RETURN_GENERATED_KEYS);
 		
-		st.setInt(1, obj.getId());
-		st.setString(2, obj.getName());
+		st.setString(1, obj.getName());
 		
 		int rowsaff = st.executeUpdate();
 		
 		if( rowsaff > 0) {
 			
+			ResultSet rs = st.getGeneratedKeys();
+			
+			if(rs.next()) {
+				obj.setId( rs.getInt(1));
+			}
+			
 		}
-		
-		
-		
-		
 			
 		}catch (Exception e) {
 			// TODO: handle exception
