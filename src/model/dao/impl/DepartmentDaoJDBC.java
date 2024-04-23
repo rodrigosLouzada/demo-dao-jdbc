@@ -34,7 +34,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		
 		int rowsaff = st.executeUpdate();
 		
-		if( rowsaff > 0) {
+		if(rowsaff > 0) {
 			
 			ResultSet rs = st.getGeneratedKeys();
 			
@@ -55,16 +55,20 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 	public void update(Department obj) {
 		PreparedStatement st =  null;
 		
-		try { st = conn.prepareStatement("UPDATE Department "
-				+ "SET Id = ?, Name = ?");
+		try { st = conn.prepareStatement(
+				"UPDATE Department "
+				+ "SET Name = ? "
+				+ "WHERE ID = ?");
 		
-			st.setInt(1, obj.getId());
-			st.setString(2, obj.getName());
+			st.setString(1, obj.getName());
+			st.setInt(2, obj.getId());
+
 			
 			int rowsaff = st.executeUpdate();
 			
 			if(rowsaff == 0) {
-				throw new DbException("try again, no updates!");
+				throw new DbException("try again, no uptdates, "
+						+ "departaments founds with this ID updates!");
 			}
 			
 		}catch (Exception e) {
