@@ -26,7 +26,7 @@ public class Program2 {
 		
 		
 		departmentDao.insert(depInsert);
-		System.out.println("insert complete, your new department Id: " + depInse.getId());
+		System.out.println("insert complete, your new department Id: " + depInsert.getId());
 		
 		
 		
