@@ -1,5 +1,8 @@
 package application;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import model.dao.DaoFactory;
 import model.dao.DepartmentDao;
 import model.dao.impl.DepartmentDaoJDBC;
@@ -12,6 +15,9 @@ public class Program2 {
 		Department dep = new Department(95, "HDs"); // testing error -- deleteById
 		Department depInsert = new Department(null, "Batteries");
 		
+		List<Department> listall = new ArrayList<>();
+		listall = departmentDao.findALL();
+		System.out.println(listall);
 		
 		
 		dep = departmentDao.findById(2);
