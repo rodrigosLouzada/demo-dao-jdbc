@@ -19,7 +19,7 @@ public class Program2 {
 		listall = departmentDao.findALL();
 		System.out.println(listall);
 		
-		
+		/*
 		dep = departmentDao.findById(2);
 		System.out.println(dep);
 		
@@ -34,7 +34,7 @@ public class Program2 {
 		departmentDao.insert(depInsert);
 		System.out.println("insert complete, your new department Id: " + depInsert.getId());
 		
-		
+		*/
 		
 		
 		
