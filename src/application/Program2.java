@@ -15,11 +15,15 @@ public class Program2 {
 		Department dep = new Department(95, "HDs"); // testing error -- deleteById
 		Department depInsert = new Department(null, "Batteries");
 		
+		
+		
+		
+		
 		List<Department> listall = new ArrayList<>();
 		listall = departmentDao.findALL();
 		System.out.println(listall);
 		
-		/*
+		
 		dep = departmentDao.findById(2);
 		System.out.println(dep);
 		
@@ -33,13 +37,6 @@ public class Program2 {
 		
 		departmentDao.insert(depInsert);
 		System.out.println("insert complete, your new department Id: " + depInsert.getId());
-		
-		*/
-		
-		
-		
-		
-		
 		
 		
 		
